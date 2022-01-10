@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/aminekun90.github.io/static/css/main.073c9b0a.css",
-    "main.js": "/aminekun90.github.io/static/js/main.3ee687f4.js",
+    "main.css": "/aminekun90.github.io/static/css/main.5fb2ab32.css",
+    "main.js": "/aminekun90.github.io/static/js/main.e196c4a8.js",
     "static/js/787.9e61016e.chunk.js": "/aminekun90.github.io/static/js/787.9e61016e.chunk.js",
-    "static/media/logo.svg": "/aminekun90.github.io/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/profile.jpg": "/aminekun90.github.io/static/media/profile.4809b4cdd783b705e698.jpg",
     "index.html": "/aminekun90.github.io/index.html",
-    "main.073c9b0a.css.map": "/aminekun90.github.io/static/css/main.073c9b0a.css.map",
-    "main.3ee687f4.js.map": "/aminekun90.github.io/static/js/main.3ee687f4.js.map",
+    "main.5fb2ab32.css.map": "/aminekun90.github.io/static/css/main.5fb2ab32.css.map",
+    "main.e196c4a8.js.map": "/aminekun90.github.io/static/js/main.e196c4a8.js.map",
     "787.9e61016e.chunk.js.map": "/aminekun90.github.io/static/js/787.9e61016e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.3ee687f4.js"
+    "static/css/main.5fb2ab32.css",
+    "static/js/main.e196c4a8.js"
   ]
 }
