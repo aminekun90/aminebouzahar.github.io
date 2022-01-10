@@ -16,7 +16,7 @@ function App() {
           <ul>
             <li>
               <a
-                href="mailto=mohamed.amine.bouzahar@gmail.com"
+                href="mailto:mohamed.amine.bouzahar@gmail.com"
                 aria-label="Send a mail to mohamed.amine.bouzahar@gmail.com"
               >
                 <span className="icon">
