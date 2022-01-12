@@ -1,46 +1,24 @@
 import "./App.scss";
-import profile from "./img/profile.jpg";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { Route, Routes } from "react-router-dom";
+
+import AppAppBar from "./modules/views/AppAppBar";
+import Home from "./modules/views/Home";
+import Education from "./modules/views/Education";
+import Skills from "./modules/views/Skills";
+import More from "./modules/views/More";
+import Work from "./modules/views/Work";
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={profile} className="App-logo" alt="logo" />
-        <h1>AMINE BOUZAHAR</h1>
-        <div>
-          <code>Coming soon ...</code>
-        </div>
-        <div className="contact">
-          <ul>
-            <li>
-              <a
-                href="mailto:mohamed.amine.bouzahar@gmail.com"
-                aria-label="Send a mail to mohamed.amine.bouzahar@gmail.com"
-              >
-                <span className="icon">
-                  <FontAwesomeIcon icon={faEnvelope} />
-                </span>
-              </a>
-            </li>
-
-            <li>
-              <a
-                className="App-link"
-                href="https://www.linkedin.com/in/amine-bouzahar/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Open linkedIn link"
-              >
-                <span className="icon">
-                  <FontAwesomeIcon icon={faLinkedin} />
-                </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </header>
+      {/* <AppAppBar /> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/education" element={<Education />} />
+        <Route path="/work" element={<Work />} />
+        <Route path="/skills" element={<Skills />} />
+        <Route path="/more" element={<More />} />
+      </Routes>
     </div>
   );
 }
