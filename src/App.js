@@ -11,7 +11,7 @@ import Work from "./modules/views/Work";
 function App() {
   return (
     <div className="App">
-      {/* <AppAppBar /> */}
+      <AppAppBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/education" element={<Education />} />
