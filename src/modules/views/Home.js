@@ -20,24 +20,34 @@ function randomBetween(min, max) {
     return 0.5;
   }
 }
+function calculateTotalDuration(intervals) {
+  let totalMilliseconds = 0;
 
-function calculateDurationInYearsAndMonths(dateString) {
-  const now = new Date();
-  const date = new Date(dateString);
-  // const diffInMs = now.getTime() - date.getTime();
+  intervals.forEach(interval => {
+      const [startDate, endDate] = interval;
+      totalMilliseconds += endDate.getTime() - startDate.getTime();
+  });
 
-  const diffInMonths =
-    (now.getFullYear() - date.getFullYear()) * 12 +
-    (now.getMonth() - date.getMonth());
-  const years = Math.floor(diffInMonths / 12);
-  const months = diffInMonths % 12;
+  const totalSeconds = totalMilliseconds / 1000;
+  const totalMinutes = totalSeconds / 60;
+  const totalHours = totalMinutes / 60;
+  const totalDays = totalHours / 24;
+
+  const years = Math.floor(totalDays / 365);
+  const months = Math.floor((totalDays % 365) / 30); // Assuming 30 days in a month
 
   return { years, months };
 }
 
 function Index() {
-  const capgeminiDuration = calculateDurationInYearsAndMonths(
-    new Date("04/25/2022")
+  const totalExp = calculateTotalDuration([
+    [new Date("04/25/2022"),new Date()],
+    [new Date("02/01/2019"),new Date("04/25/2022")],
+    [new Date("05/01/2017"),new Date("12/31/2018")],
+  ]);
+  const capgeminiDuration = calculateTotalDuration([
+    [new Date("04/25/2022"),new Date()]
+  ]
   );
   React.useEffect(() => {
     for (let i = 0; i < 20; i++) {
@@ -217,7 +227,7 @@ function Index() {
                     </span>
                   </a>
                 </li>
-                <li>Nantes, FR / Düsseldorf, DE</li>
+                <li>Nantes, France</li>
               </ul>
             </div>
             <div className="contact-presentation">
@@ -254,11 +264,11 @@ function Index() {
 
         <section className="experience section-padding">
           <div className="container">
-            <h3 className="experience-title">Experience</h3>
+            <h3 className="experience-title">Experience ({totalExp.years} yr {totalExp.months} mos)</h3>
 
             <div className="experience-wrapper">
               <div className="company-wrapper clearfix">
-                <div className="experience-title">Capgemini</div>
+                <div className="experience-title">Capgemini <FontAwesomeIcon icon={"spade"} /></div>
                 <div className="time">
                   April 2022 - Present ({capgeminiDuration.years} yr{" "}
                   {capgeminiDuration.months} mos)
