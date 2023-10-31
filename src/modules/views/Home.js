@@ -3,6 +3,8 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import profile from "../../img/profile.jpg";
+import capgemini from "../../img/capgemini.svg";
+import wiztivi from "../../img/wiztivi.png";
 import * as React from "react";
 import withRoot from "../withRoot";
 import { gsap, Elastic } from "gsap";
@@ -23,9 +25,9 @@ function randomBetween(min, max) {
 function calculateTotalDuration(intervals) {
   let totalMilliseconds = 0;
 
-  intervals.forEach(interval => {
-      const [startDate, endDate] = interval;
-      totalMilliseconds += endDate.getTime() - startDate.getTime();
+  intervals.forEach((interval) => {
+    const [startDate, endDate] = interval;
+    totalMilliseconds += endDate.getTime() - startDate.getTime();
   });
 
   const totalSeconds = totalMilliseconds / 1000;
@@ -41,14 +43,13 @@ function calculateTotalDuration(intervals) {
 
 function Index() {
   const totalExp = calculateTotalDuration([
-    [new Date("04/25/2022"),new Date()],
-    [new Date("02/01/2019"),new Date("04/25/2022")],
-    [new Date("05/01/2017"),new Date("12/31/2018")],
+    [new Date("04/25/2022"), new Date()],
+    [new Date("02/01/2019"), new Date("04/25/2022")],
+    [new Date("05/01/2017"), new Date("12/31/2018")],
   ]);
   const capgeminiDuration = calculateTotalDuration([
-    [new Date("04/25/2022"),new Date()]
-  ]
-  );
+    [new Date("04/25/2022"), new Date()],
+  ]);
   React.useEffect(() => {
     for (let i = 0; i < 20; i++) {
       let element = document.querySelector(".bubble" + i);
@@ -264,11 +265,19 @@ function Index() {
 
         <section className="experience section-padding">
           <div className="container">
-            <h3 className="experience-title">Experience ({totalExp.years} yr {totalExp.months} mos)</h3>
+            <h3 className="experience-title">
+              Experience ({totalExp.years} yr {totalExp.months} mos)
+            </h3>
 
             <div className="experience-wrapper">
               <div className="company-wrapper clearfix">
-                <div className="experience-title">Capgemini <FontAwesomeIcon icon={"spade"} /></div>
+                <div className="experience-title">
+                  <img
+                    src={capgemini}
+                    alt="Capgemini ♠️"
+                    className="brand cap"
+                  />
+                </div>
                 <div className="time">
                   April 2022 - Present ({capgeminiDuration.years} yr{" "}
                   {capgeminiDuration.months} mos)
@@ -291,7 +300,9 @@ function Index() {
               </div>
 
               <div className="company-wrapper clearfix">
-                <div className="experience-title">Wiztivi</div>
+                <div className="experience-title">
+                  <img src={wiztivi} alt="wiztivi 〰️" className="brand wtv" />
+                </div>
                 <div className="time">
                   February 2019 - April 2022 (3 yr 3 mos)
                 </div>
@@ -334,21 +345,18 @@ function Index() {
             </div>
             <div className="language-wrapper">
               <h3 className="section-title">Languages</h3>
-             
-                <ul>
-                  <li className="">
-                    FRENCH : Native or bilingual proficiency.
-                  </li>
-                  <li className="">ENGLISH: Full professional proficiency.</li>
-                  <li className="">ARABIC: Native or bilingual proficiency.</li>
-                  <li className="">
-                    TAMAZIGHT(north african native language): Native or
-                    bilingual proficiency (3 variants).
-                  </li>
-                  <li className="">GERMAN: Elementary proficiency.</li>
-                  <li className="">RUSSIAN: Elementary knowledge.</li>
-                </ul>
-             
+
+              <ul>
+                <li className="">FRENCH : Native or bilingual proficiency.</li>
+                <li className="">ENGLISH: Full professional proficiency.</li>
+                <li className="">ARABIC: Native or bilingual proficiency.</li>
+                <li className="">
+                  TAMAZIGHT(north african native language): Native or bilingual
+                  proficiency (3 variants).
+                </li>
+                <li className="">GERMAN: Elementary proficiency.</li>
+                <li className="">RUSSIAN: Elementary knowledge.</li>
+              </ul>
             </div>
             <div className="section-wrapper clearfix">
               <h3 className="section-title">Skills</h3>
@@ -378,6 +386,14 @@ function Index() {
                 other tools to make coders life easier.
               </p>
             </div>
+          </div>
+          <div className="clearfix"></div>
+          <div className="copyright-wrapper clearfix">
+            <p>
+              v0.3.0 Made with&nbsp;<span className="red-text">❤</span>&nbsp;by&nbsp;
+              <a href="https://github.com/aminekun90">amine</a>&nbsp;using&nbsp;
+              <a href="https://react.dev">React.js</a>
+            </p>
           </div>
         </section>
 
