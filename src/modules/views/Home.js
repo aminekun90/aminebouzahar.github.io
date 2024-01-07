@@ -336,9 +336,9 @@ function Index() {
                   <p>
                     My first job as an engineer, was a chalenging experience, I
                     was the most experienced in a team of 4-5 junior engineers.
-                    I had an opportunity to work for a project for the Eropean
-                    space agency, with many new technologies and IOT Research
-                    and developement
+                    I had an opportunity to work on a project for the European
+                    space agency (ESA), with many new technologies and also IOT Research
+                    and developement.
                   </p>
                 </div>
               </div>
