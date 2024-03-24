@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.23b88036.css",
-    "main.js": "/static/js/main.09bfa39c.js",
-    "static/js/496.d0a4b46e.chunk.js": "/static/js/496.d0a4b46e.chunk.js",
-    "static/media/profile.jpg": "/static/media/profile.4809b4cdd783b705e698.jpg",
+    "main.css": "/static/css/main.708b3052.css",
+    "main.js": "/static/js/main.9c8b1bec.js",
+    "static/js/488.dc6da504.chunk.js": "/static/js/488.dc6da504.chunk.js",
+    "static/media/portrait.jpeg": "/static/media/portrait.10cb53f1b177a6baffee.jpeg",
     "static/media/capgemini.svg": "/static/media/capgemini.5c8cf25a84f93ecff9bbf6c43398d23e.svg",
     "index.html": "/index.html",
-    "main.23b88036.css.map": "/static/css/main.23b88036.css.map",
-    "main.09bfa39c.js.map": "/static/js/main.09bfa39c.js.map",
-    "496.d0a4b46e.chunk.js.map": "/static/js/496.d0a4b46e.chunk.js.map"
+    "main.708b3052.css.map": "/static/css/main.708b3052.css.map",
+    "main.9c8b1bec.js.map": "/static/js/main.9c8b1bec.js.map",
+    "488.dc6da504.chunk.js.map": "/static/js/488.dc6da504.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.23b88036.css",
-    "static/js/main.09bfa39c.js"
+    "static/css/main.708b3052.css",
+    "static/js/main.9c8b1bec.js"
   ]
 }
