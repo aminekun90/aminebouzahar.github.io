@@ -1,7 +1,7 @@
 {
   "homepage": "https://aminekun90.github.io/",
   "name": "aminekun90",
-  "version": "0.2.1",
+  "version": "0.4.0",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.8",
@@ -16,6 +16,7 @@
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
     "gsap": "^3.11.5",
+    "html-react-parser": "^5.1.9",
     "i": "^0.3.7",
     "npm": "^10.2.1",
     "react": "^18.2.0",

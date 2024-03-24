@@ -1,14 +1,18 @@
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import parse from 'html-react-parser';
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import profile from "../../img/profile.jpg";
+import profile from "../../img/portrait.jpeg";
 import capgemini from "../../img/capgemini.svg";
 import wiztivi from "../../img/wiztivi.png";
 import * as React from "react";
 import withRoot from "../withRoot";
 import { gsap, Elastic } from "gsap";
 import { Timeline, Tween } from "gsap/gsap-core";
+import LanguageSelector from "../components/LanguageSelector";
+import englishData from "../../data/english.json";
+import frenchData from "../../data/french.json";
 gsap.registerPlugin(Tween);
 
 const tl = new Timeline();
@@ -22,6 +26,8 @@ function randomBetween(min, max) {
     return 0.5;
   }
 }
+
+
 function calculateTotalDuration(intervals) {
   let totalMilliseconds = 0;
 
@@ -42,6 +48,25 @@ function calculateTotalDuration(intervals) {
 }
 
 function Index() {
+  // Define state variable for selected language
+  const [selectedLanguage, setSelectedLanguage] = React.useState("english");
+
+  // Function to update selected language
+  const handleLanguageChange = (language) => {
+    console.log("index langage change", language);
+    setSelectedLanguage(language);
+  };
+  const getTranslation= (key)=> {
+  
+  switch (selectedLanguage) {
+    case "English":
+      return englishData[key];
+    case "French":
+      return frenchData[key];
+    default:
+      return englishData[key];
+  }
+}
   const totalExp = calculateTotalDuration([
     [new Date("04/25/2022"), new Date()],
     [new Date("02/01/2019"), new Date("04/25/2022")],
@@ -69,9 +94,11 @@ function Index() {
 
     tl.seek(50);
   });
+
   return (
     <React.Fragment>
       <div className="resume-wrapper">
+        <LanguageSelector onLanguageChange={handleLanguageChange} />
         <section className="profile section-padding">
           <div className="container">
             <div className="picture-resume-wrapper">
@@ -189,18 +216,21 @@ function Index() {
             </div>
             <div className="name-wrapper">
               <h1>
-                {" "}
-                Amine .M. <br />
+                Mohamed-Amine
+                <br/>
                 BOUZAHAR
+                <br />
+                <small>Lead Software Engineer</small>
               </h1>
+              
             </div>
             <div className="clearfix"></div>
             <div className="contact-info clearfix">
               <ul className="list-titles">
                 {/* <li>Call</li> */}
-                <li>Mail</li>
-                <li>linkedIn</li>
-                <li>Home</li>
+                <li>{getTranslation("mail")}</li>
+                <li>{getTranslation("linkedIn")}</li>
+                <li>{getTranslation("home")}</li>
               </ul>
               <ul className="list-content ">
                 {/* <li>+34 123 456 789</li>  */}
@@ -212,6 +242,9 @@ function Index() {
                   >
                     <span className="icon">
                       <FontAwesomeIcon icon={faEnvelope} />
+                    </span>
+                    <span className="text">
+                      mohamed.amine.bouzahar@gmail.com
                     </span>
                   </a>
                 </li>
@@ -226,28 +259,16 @@ function Index() {
                     <span className="icon">
                       <FontAwesomeIcon icon={faLinkedin} />
                     </span>
+                    <span className="text">
+                      https://www.linkedin.com/in/amine-bouzahar/
+                    </span>
                   </a>
                 </li>
                 <li>Nantes, France</li>
               </ul>
             </div>
             <div className="contact-presentation">
-              <p>
-                <span className="bold">I have </span>
-                a degree in computer engineering, I work in the field of
-                computer science as a senior developer in Web/Desktop and mobile
-                applications.
-                <br /> I am passionate about new technologies and what I do, and
-                I want to share my expertise, skills, and creativity in this
-                field. I aim to develop and confirm my skills while continuously
-                learning different subjects.
-                <br />I have a dynamic spirit, a good sense of responsibility
-                and analysis, and I often opt for teamwork. I anticipate
-                problems by proposing solutions that are adapted to the field
-                requirements.
-                <br />
-                On my spare time I work on many personal projects you can check
-                my github bellow.
+              <p className="subhead">{parse(getTranslation("presentation"))}
               </p>
             </div>
             <div className="contact-social clearfix">
@@ -266,7 +287,7 @@ function Index() {
         <section className="experience section-padding">
           <div className="container">
             <h3 className="experience-title">
-              Experience ({totalExp.years} yr {totalExp.months} mos)
+              {getTranslation('experience')} ({totalExp.years} {getTranslation('yr')} {totalExp.months} {getTranslation('mos')})
             </h3>
 
             <div className="experience-wrapper">
@@ -279,23 +300,17 @@ function Index() {
                   />
                 </div>
                 <div className="time">
-                  April 2022 - Present ({capgeminiDuration.years} yr{" "}
-                  {capgeminiDuration.months} mos)
+                {getTranslation('april')} 2022 - Present ({capgeminiDuration.years} {getTranslation('yr')}{" "}
+                  {capgeminiDuration.months} {getTranslation('mos')})
                 </div>
               </div>
 
               <div className="job-wrapper clearfix">
                 <div className="experience-title">
-                  Front/Back End Lead software engineer{" "}
+                  Front/Back End Lead software Engineer
                 </div>
                 <div className="company-description">
-                  <p>
-                    At capgemini, I had the opportunity to work with amazing
-                    people, and amazing technologies like AWS, Symfony,
-                    Typscript, Angular, Magento, Akeneo PIM, ... and lot of
-                    dev-ops software and tools like docker and jenkins and
-                    github-ci
-                  </p>
+                {parse(getTranslation('cap-desc'))}
                 </div>
               </div>
 
@@ -304,7 +319,7 @@ function Index() {
                   <img src={wiztivi} alt="wiztivi 〰️" className="brand wtv" />
                 </div>
                 <div className="time">
-                  February 2019 - April 2022 (3 yr 3 mos)
+                {getTranslation('february')} 2019 - {getTranslation('april')} 2022 (3 {getTranslation('yr')} 3 {getTranslation('mos')})
                 </div>
               </div>
 
@@ -313,18 +328,14 @@ function Index() {
                   R&D Engineer / Front/Back-end Engineer
                 </div>
                 <div className="company-description">
-                  <p>
-                    At wiztivi I had many responsabilities, and roles and I had
-                    a chance to explore the universe of set top boxes for many
-                    international actors like Vodafone Eutelsat and SFR.
-                  </p>
+                {parse(getTranslation('wiz-desc'))}
                 </div>
               </div>
 
               <div className="company-wrapper clearfix">
                 <div className="experience-title">Tisalabs</div>
                 <div className="time">
-                  July 2017 - December 2018 (1 yr 6 mos)
+                {getTranslation('july')} 2017 - {getTranslation('december')} 2018 (1 {getTranslation('yr')} 6 {getTranslation('mos')})
                 </div>
               </div>
 
@@ -333,64 +344,49 @@ function Index() {
                   R&D Engineer & Web Designer{" "}
                 </div>
                 <div className="company-description">
-                  <p>
-                    My first job as an engineer, was a chalenging experience, I
-                    was the most experienced in a team of 4-5 junior engineers.
-                    I had an opportunity to work on a project for the European
-                    space agency (ESA), with many new technologies and also IOT Research
-                    and developement.
-                  </p>
+                {parse(getTranslation('tisa-desc'))}
                 </div>
               </div>
             </div>
             <div className="language-wrapper">
-              <h3 className="section-title">Languages</h3>
+              <h3 className="section-title">{getTranslation('languages')}</h3>
 
               <ul>
-                <li className="">FRENCH : Native or bilingual proficiency.</li>
-                <li className="">ENGLISH: Full professional proficiency.</li>
-                <li className="">ARABIC: Native or bilingual proficiency.</li>
+                <li className=""><span>{getTranslation('french')}</span> : {getTranslation('native-lang')}</li>
+                <li className=""><span>{getTranslation('english')}</span> : {getTranslation('pro-lang')}</li>
+                <li className=""><span>{getTranslation('arabic')}</span> : {getTranslation('native-lang')}</li>
                 <li className="">
-                  TAMAZIGHT(north african native language): Native or bilingual
-                  proficiency (3 variants).
+                <span>{getTranslation('tamazight')}</span> {getTranslation('tamazight-desc')} : {getTranslation('native-lang')} {getTranslation('3-variants')}.
                 </li>
-                <li className="">GERMAN: Elementary proficiency.</li>
-                <li className="">RUSSIAN: Elementary knowledge.</li>
+                <li className=""><span>{getTranslation('german')}</span> : {getTranslation('elem-lang')}</li>
+                <li className=""><span>{getTranslation('russian')}</span> : {getTranslation('elem-lang-bis')}</li>
               </ul>
             </div>
             <div className="section-wrapper clearfix">
-              <h3 className="section-title">Skills</h3>
+              <h3 className="section-title">{getTranslation('skills')}</h3>
               <ul>
                 <li className="skill-percentage">HTML / HTML5</li>
-                <li className="skill-percentage">CSS / CSS3 / SASS / LESS</li>
+                <li className="skill-percentage">CSS / CSS3 / SASS / SCSS</li>
                 <li className="skill-percentage">Typescript</li>
                 <li className="skill-percentage">React.js</li>
-                <li className="skill-percentage">Angular 2</li>
-                <li className="skill-percentage">Python</li>
+                <li className="skill-percentage">Angular 2 (version 16)</li>
+                <li className="skill-percentage">Python 3</li>
                 <li className="skill-percentage">SQL</li>
-                <li className="skill-percentage">Amazon Web Services</li>
-                <li className="skill-percentage">Google Cloud Services</li>
+                <li className="skill-percentage">Amazon Web Services (AWS)</li>
+                <li className="skill-percentage">Google Cloud Services (GCloud)</li>
               </ul>
             </div>
 
             <div className="section-wrapper clearfix">
-              <h3 className="section-title">Hobbies</h3>
-              <p>
-                On my freetime, I like to read books specially IT stuff, play
-                competitive video games.
-              </p>
-
-              <p>
-                Also I work on open source projects on my github and for the
-                community like npm packages for IOT devices/ Bots in python, and
-                other tools to make coders life easier.
-              </p>
+              <h3 className="section-title">{getTranslation('hobbies')}</h3>
+              {parse(getTranslation('hobbies-desc'))}
             </div>
           </div>
           <div className="clearfix"></div>
           <div className="copyright-wrapper clearfix">
             <p>
-              v0.3.0 Made with&nbsp;<span className="red-text">❤</span>&nbsp;by&nbsp;
+              v0.4.0 Made with&nbsp;<span className="red-text">❤</span>
+              &nbsp;by&nbsp;
               <a href="https://github.com/aminekun90">amine</a>&nbsp;using&nbsp;
               <a href="https://react.dev">React.js</a>
             </p>

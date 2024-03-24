@@ -11,17 +11,17 @@ $time: 0.6s;
 
 @mixin breakpoint($point) {
   @if $point == papa-bear {
-    @media (max-width: 1500px) {
+    @media (max-width: 2000px) {
       @content;
     }
   }
   @if $point == mama-bear {
-    @media (max-width: 1200px) {
+    @media (max-width: 1500px) {
       @content;
     }
   }
   @if $point == brother-bear {
-    @media (max-width: 850px) {
+    @media (max-width: 1200px) {
       @content;
     }
   } @else if $point == baby-bear {
@@ -48,9 +48,12 @@ a {
 .clearfix::after {
   clear: both;
 }
-.bold {
-  color: $boldColor;
-  font-weight: 400;
+.subhead::first-letter {
+  -webkit-initial-letter: 4;
+          initial-letter: 4;
+  color: $linkColor;
+  font-weight: bold;
+  margin-right: .75em;
 }
 
 .resume-wrapper {
@@ -62,10 +65,20 @@ a {
 .container {
   min-height: 600px;
 }
-
+.lang{
+  position: absolute;
+  float: right;
+  margin-top: 10px;
+  padding: 5px;
+  img{
+    cursor: pointer;
+    height: 25px;
+    margin-right: 10px;
+  }
+}
 .profile {
   background: $profileBg;
-  width: 40%;
+  width: 45%;
   float: left;
   color: $profileColor;
   @include breakpoint(brother-bear) {
@@ -76,7 +89,8 @@ a {
     width: 60%;
   }
   h1 {
-    font-size: 2.5em;
+    font-size: 2em;
+    margin-top: 0;
     text-align: left;
     font-family: "Varela Round", sans-serif;
     color: $boldColor;
@@ -90,7 +104,12 @@ a {
       font-size: 1.8em;
       padding-top: 20px;
     }
+    small{
+      font-size: 18px;
+      color: #9099a0;
+    }
   }
+  
   li {
     margin-bottom: 10px;
     list-style: none;
@@ -170,16 +189,23 @@ a {
       margin-top: 0;
     }
   }
+  .text{
+    font-size: 15px;
+  }
   .list-titles {
     float: left;
+    margin: 0;
+    padding: 0;
     text-align: left;
     font-weight: 600;
-    width: 40%;
+    width: 20%;
     color: $boldColor;
   }
   .list-content {
+    margin: 0;
+    padding: 0;
     float: left;
-    width: 60%;
+    width: 80%;
     text-align: left;
     font-weight: 300;
   }
@@ -212,7 +238,7 @@ a {
 }
 .experience {
   background: $skillsBg;
-  width: 60%;
+  width: 55%;
   float: left;
   position: relative;
   color: $skillsColor;
@@ -373,7 +399,9 @@ a {
     }
   }
 }
-
+.copyright-wrapper {
+  font-size: 12px;
+}
 @keyframes skill_1 {
   from {
     width: 0%;
