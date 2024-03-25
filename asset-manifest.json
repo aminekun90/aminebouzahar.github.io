@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.708b3052.css",
-    "main.js": "/static/js/main.9c8b1bec.js",
+    "main.js": "/static/js/main.92c90a01.js",
     "static/js/488.dc6da504.chunk.js": "/static/js/488.dc6da504.chunk.js",
     "static/media/portrait.jpeg": "/static/media/portrait.10cb53f1b177a6baffee.jpeg",
     "static/media/capgemini.svg": "/static/media/capgemini.5c8cf25a84f93ecff9bbf6c43398d23e.svg",
     "index.html": "/index.html",
     "main.708b3052.css.map": "/static/css/main.708b3052.css.map",
-    "main.9c8b1bec.js.map": "/static/js/main.9c8b1bec.js.map",
+    "main.92c90a01.js.map": "/static/js/main.92c90a01.js.map",
     "488.dc6da504.chunk.js.map": "/static/js/488.dc6da504.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.708b3052.css",
-    "static/js/main.9c8b1bec.js"
+    "static/js/main.92c90a01.js"
   ]
 }
